@@ -11,3 +11,60 @@
 }
 
 */
+.header {
+  @apply container flex justify-between items-center px-2 text-slate-200 text-lg;
+  background-color:  rgba(77,95,125,255);
+  height: 3.3rem;
+  font-family: 'Montserrat';
+}
+
+
+.authentication-modal {
+  border-radius: 0.5rem !important;
+  display:flex;
+  flex-direction: column !important;
+  min-height: 31rem !important;
+  min-width: 20rem !important;
+  padding: 1.5rem !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  background-color: aquamarine !important;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* From uiverse.io by @alexruix */
+.auth-input {
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  margin: 1rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 90%;
+  box-sizing: border-box;
+ }
+ 
+ .auth-input:focus, .auth-input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #7a9cc6;
+ }
+ 
+ .auth-input::placeholder {
+  color: #777;
+ }
+ 
+ .auth-input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+ }

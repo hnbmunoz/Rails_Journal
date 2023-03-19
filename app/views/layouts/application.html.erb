@@ -7,12 +7,17 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
+    <%= stylesheet_link_tag('application')%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link  href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"> 
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 flex">
+     
+    <main class="container mx-auto flex">
       <%= yield %>
     </main>
     <script src="https://cdn.tailwindcss.com"></script>

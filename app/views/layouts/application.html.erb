@@ -13,13 +13,18 @@
     <link  href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>    
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"> 
+    
+    <%= stylesheet_link_tag('bundles.1f5d134e5a5ed499fb66')%>
+  
   </head>
 
   <body>
      
-    <main class="container mx-auto flex">
+    <main class="container mx-auto flex items-center justify-center" style="height: 100vh">
       <%= yield %>
     </main>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>   
+    <%= javascript_include_tag "bundleAuth" %>
+    <%= javascript_include_tag "runtimeAuth" %>
   </body>
 </html>

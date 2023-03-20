@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   get 'pages/login'
   get 'pages/register'
 
-  post '/authentications(.:format)' => 'authentications#new_user'
+
+  post '/authentications/signUp(.:format)' => 'authentications#new_user'
   get '/' => "pages#index"
+  get 'pages/dashboard' => "pages#dashboard"
   # post '/' => "authentications#new_user"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

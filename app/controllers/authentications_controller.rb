@@ -1,6 +1,9 @@
 class AuthenticationsController < ApplicationController
   def new_user
-    puts form_params
+    @status = Repository.create_user_account(form_params)
+   
+    puts @status
+    redirect_to '/'
   end
 
   private

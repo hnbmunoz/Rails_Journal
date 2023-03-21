@@ -18,6 +18,17 @@
   font-family: 'Montserrat';
 }
 
+.header-container {
+  background-color: #4d5f7d;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 15%;
+  height: fit-content;
+  padding: 0.5rem
+}
+
+/* 
 .flex-column {
   display:flex;
   flex-direction: column;
@@ -81,7 +92,7 @@
 
 
 
-/* From uiverse.io by @alexruix */
+/* From uiverse.io by @alexruix
 .auth-input {
   line-height: 1.75rem;
   border: 0.12rem solid transparent;
@@ -146,5 +157,5 @@
 .auth-state:hover {
   color: #0f0092;    
   cursor: pointer;
-}
+} */
  

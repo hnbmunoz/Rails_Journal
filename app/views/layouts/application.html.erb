@@ -9,7 +9,6 @@
 
     <%= stylesheet_link_tag('application')%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <link  href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>    
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"> 
@@ -26,5 +25,6 @@
     <script src="https://cdn.tailwindcss.com"></script>   
     <%= javascript_include_tag "bundleAuth" %>
     <%= javascript_include_tag "bundleHeader" %>
-  </body>
+    <%= javascript_importmap_tags %>
+  </body>    
 </html>

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   post '/authentications/signUp(.:format)' => 'authentications#new_user'
   post '/authentications/signIn(.:format)' => 'authentications#verify_user'
+  post '/authentications/signOut' => 'authentications#clear_user'
 
   post 'pages/categories/create(.:format)' => 'categories#create'
+   
   get '/' => "pages#index"
   get 'pages/dashboard' => "pages#dashboard"
   # post '/' => "authentications#new_user"

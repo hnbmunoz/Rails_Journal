@@ -5,9 +5,17 @@ class Repository
     return false if !(@user_details.save)
     
     @account_details = Account.new( "user_ID":  User.last.id, "account_type_ID": 1, "username": new_user['username'], "password": new_user['password'], "authentication_token": "randomCode")
-    
+
+     
     print @account_details.errors.full_messages
-    @account_details.save
+
+    if @account_details.save
+      Journal.create("account_ID": Account.last.id, "journal_name": "#{new_user['first_name']}'s Journal" ,"hex": "##{Random.bytes(3).unpack1('H*')}")
+      Category.create("account_ID": Account.last.id, "title": "Uncategorized", "annotations": "Miscellaneous")  
+      return true
+    else
+      @account_details.errors.full_messages
+    end
   end
 
   def self.validate_user_account(validate_user)    
@@ -19,14 +27,19 @@ class Repository
     if @account || @user
       if @account.password == validate_user["password"]
         @account.authentication_token = @generated_token
-        @account.save
-        return true
+        @account.save              
+        return @generated_token
       else
         return false
       end
     else
       return false
     end
+
+  end
+
+  def self.allow_access(user_token)
+    
 
   end
 

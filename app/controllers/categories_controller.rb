@@ -1,5 +1,8 @@
 class CategoriesController  < ApplicationController
   def create
-    puts 'process here'
+    puts 'run this'
+    puts cookies[:gen_token]
+    # head :no_content
+    head :ok 
   end
 end

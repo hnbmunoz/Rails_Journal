@@ -14,32 +14,7 @@
  *= require_self
  */
 /* Notebook Design */
- :root {
-  --brown: #7A7978;
-  /* --background: #8AC4FF; */
-  --notebook: tomato;
-  --shaddow: #A44A3F;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-/* body {
-  background-color: var(--background);
-} */
-
-p {
-  margin-top: 5vh;
-  text-align: center;
-  color: var(--brown);
-  text-transform: capitalize;
-  font-family: 'Segoe UI';
-  font-weight: 400;
-  font-size: 2em;
-}
-
+ 
 .box {
   position: relative;
   width: 700px;
@@ -54,7 +29,7 @@ p {
   height: 4%;
   border-left: 4px solid black;
   border-bottom: 2px solid black;
-  border-right: 5px solid var(--notebook);
+  /* border-right: 5px solid var(--notebook); */
   left: 30%;
   top: 10%;
   border-radius: 50%;
@@ -117,7 +92,7 @@ p {
   position: absolute;
   width: 50%;
   height: 75%;
-  background: var(--notebook);
+  
   left: 32%;
   top: 8%;
   box-shadow: 20px 10px 80px #14080E;
@@ -192,7 +167,7 @@ p {
   background: white;
   left: 20%;
   top: 20%;
-  box-shadow: 2px 2px 70px 20px var(--shaddow);
+  box-shadow: 2px 2px 70px 20px #1f1f1f;
 }
 
 .line {
@@ -205,9 +180,10 @@ p {
   text-align: center;
 }
 
-.line span {
-  font-size: 2em;
+.notebook-title {
+  font-size: 1.5rem;
   color: grey;
+  font-family: 'Patrick Hand' !important;
 }
 
 .line:nth-of-type(2) {
@@ -225,7 +201,7 @@ p {
     height: 3%;
     border-left: 3px solid black;
     border-bottom: 1px solid black;
-    border-right: 3px solid var(--notebook);
+    /* border-right: 3px solid var(--notebook); */
   }
 
   .line span {

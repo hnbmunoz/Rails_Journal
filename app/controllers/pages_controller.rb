@@ -1,28 +1,27 @@
 class PagesController < ApplicationController
   def index
-  end
-
-  def login
-  end
-
-  def register
-  end
-
-  def dashboard
-    
     @allow_access = Repository.allow_access(cookies[:gen_token])
-    print cookies[:gen_token]
 
-
-    if cookies[:gen_token] != nil || cookies[:gen_token] != "" 
+    if @allow_access
       @account = Account.find_by("authentication_token": cookies[:gen_token])
       @journal = Journal.find_by("account_ID": @account.id)
+    
+      redirect_to "/pages/dashboard"
     end
-    if cookies[:gen_token] == nil && cookies[:gen_token] == "" 
-      redirect_to "/"
-    end
+  end
 
-   
+  def dashboard   
+    @allow_access = Repository.allow_access(cookies[:gen_token])
+    if @allow_access
+      @account = Account.find_by("authentication_token": cookies[:gen_token])
+      @journal = Journal.find_by("account_ID": @account.id)
+    else
+      redirect_to "/"
+    end   
+  end
+
+  def journal_entries
+    
   end
 
 end

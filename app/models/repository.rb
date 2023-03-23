@@ -49,7 +49,14 @@ class Repository
     @logged_account = Account.find_by("authentication_token": user_token)
   end
 
- 
-
+  def self.create_new_category(user_token, category_params)
+    puts user_token
+    @logged_account = Account.find_by( "authentication_token": user_token)
+    @new_category = Category.new("account_ID": @logged_account.id, 
+      "title": category_params['category_title'],
+      "annotations": category_params['category_comment'])
+    @new_category.save()
+  end
+  
 
 end

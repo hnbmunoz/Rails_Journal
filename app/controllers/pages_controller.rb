@@ -21,7 +21,10 @@ class PagesController < ApplicationController
   end
 
   def journal_entries
-    
+    @selected_journal = Journal.find(params["id"])
+
+    pp @selected_journal
+   
   end
 
 end

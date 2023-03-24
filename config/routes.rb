@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'pages/register'
 
   get 'pages/categories/all' => 'categories#my_categories', as: 'show_my_categories'
-  
+  get 'categories/all' => 'categories#my_categories', as: 'show_my_categories_entry'
 
 
   post '/authentications/signUp(.:format)' => 'authentications#new_user'

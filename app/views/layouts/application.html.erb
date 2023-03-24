@@ -20,12 +20,13 @@
   </head>
   <body>
      
-    <main class="flex items-center justify-center" style="height:100vh">
+    <main class="flex items-center justify-center" >
       <%= yield %>
     </main>
     <script src="https://cdn.tailwindcss.com"></script>   
     <%= javascript_include_tag "bundleAuth" %>
     <%= javascript_include_tag "bundleHeader" %>
+    <%= javascript_include_tag "bundleEntries" %>
     <%= javascript_importmap_tags %>
   </body>    
 </html>

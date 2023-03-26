@@ -11,8 +11,18 @@ class CategoriesController  < ApplicationController
   end
 
   def my_categories
+    @logged_account = Account.find_by( "authentication_token": cookies[:gen_token])
+    pp @logged_account
     @categories = Category.all
-    render json: @categories
+    @filtered = []
+
+    @categories.each do | obj| 
+      if obj.account_ID == @logged_account.id
+        @filtered.push(obj)
+      end
+    end
+    
+    render json: @filtered
   end
 
   private

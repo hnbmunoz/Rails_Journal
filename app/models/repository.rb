@@ -57,6 +57,19 @@ class Repository
       "annotations": category_params['category_comment'])
     @new_category.save()
   end
+
+  def self.create_new_task(user_token, task_params)
+    @logged_account = Account.find_by( "authentication_token": user_token)
+    @new_task = Task.new("account_ID": @logged_account.id, 
+      "category_ID": task_params['category_ID'],
+      "journal_ID": task_params['journal_ID'],
+      "title": task_params['task_title'],
+      "details": task_params['task_description'],
+      "created": task_params['task_created'].to_datetime,
+      "deadline": task_params['task_deadline'].to_datetime)
+    @new_task.save()
+  end
+
   
 
 end

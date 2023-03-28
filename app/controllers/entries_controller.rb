@@ -33,6 +33,34 @@ class EntriesController < ApplicationController
     end 
   end
 
+  def create_category
+    puts category_params   
+    @new_category = Repository.create_new_category(cookies[:gen_token],category_params )
+    if @new_category
+      head :ok, { msg: "Successfully Saved" }
+    else
+      head :precondition_failed, { msg: "Failed to save new category" }
+    end 
+  end
+
+  def edit_category
+    @modified_category = Repository.edit_category(editcategory_params)
+    if @modified_category
+      head :ok, { msg: "Successfully Saved" }
+    else
+      head :precondition_failed, { msg: "Failed to save new category" }
+    end 
+  end
+
+  def disable_category
+    @disable_category = Repository.soft_delete_category(editcategory_params)
+    if @disable_category
+      head :ok, { msg: "Successfully Disabled Category" }
+    else
+      head :precondition_failed, { msg: "Failed to disable category" }
+    end 
+  end
+
   private
   def task_params
     params.require(:entry).permit(:category_ID, :task_title, :task_description, :task_deadline, :task_created, :journal_ID)   
@@ -44,5 +72,13 @@ class EntriesController < ApplicationController
 
   def edittask_params
     params.require(:entry).permit(:task_ID, :category_ID, :task_title, :task_description)   
+  end
+
+  def category_params
+    params.permit(:category_title, :category_comment)  
+  end
+
+  def editcategory_params
+    params.permit(:category_ID, :category_title, :category_comment)  
   end
 end

@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   delete '/pages/entries/tasks/delete(.:format)' => 'entries#delete_task'
   patch '/pages/entries/tasks/edit(.:format)' => 'entries#edit_task'
   
+  get '/pages/entries/categories/all' => 'categories#my_categories', as: 'all_categories_entry'
+  post '/pages/entries/categories/create(.:format)' => 'entries#create_category'
+  patch '/pages/entries/categories/edit(.:format)' => 'entries#edit_category'
+  patch '/pages/entries/categories/disable(.:format)' => 'entries#disable_category'
   post '/pages/categories/create(.:format)' => 'categories#create'
   # axios routes
 

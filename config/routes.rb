@@ -19,11 +19,14 @@ Rails.application.routes.draw do
   get 'pages/categories/all' => 'categories#my_categories', as: 'show_my_categories'
   get 'pages/entries/:id(.:format)' => 'pages#journal_entries', as: 'show_journal_entries'
   get 'categories/all' => 'categories#my_categories', as: 'show_my_categories_entry'
-
+  get 'tasks/all' => 'tasks#my_tasks', as: 'show_my_tasks_entry'
 
   # "/pages/entries/tasks/create
   # post '/pages/entries/tasks/create(.:format)' => 'tasks#create', as: 'create_new_task'
   post '/pages/entries/tasks/create(.:format)' => 'entries#create_task'
+  delete '/pages/entries/tasks/delete(.:format)' => 'entries#delete_task'
+  patch '/pages/entries/tasks/edit(.:format)' => 'entries#edit_task'
+  
   post '/pages/categories/create(.:format)' => 'categories#create'
   # axios routes
 

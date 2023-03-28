@@ -70,6 +70,27 @@ class Repository
     @new_task.save()
   end
 
-  
+  def self.delete_single_task(user_token, taskid_params)   
+    # @logged_account = Account.find_by( "authentication_token": user_token)
+    @target_task = Task.find(taskid_params['task_ID'])
+    pp @target_task
+    
+    if (@target_task.present?) 
+      @target_task.destroy!
+    else
+      return false
+    end
+  end
+
+  def self.modify_single_task(user_token, task_params)
+    @target_task = Task.find(task_params['task_ID'])
+    pp @target_task
+    pp task_params
+    @target_task.category_ID = task_params['category_ID']
+    @target_task.title = task_params['task_title']
+    @target_task.details = task_params['task_description']
+    @target_task.save
+   
+  end
 
 end

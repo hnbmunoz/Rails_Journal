@@ -58,6 +58,19 @@ class Repository
     @new_category.save()
   end
 
+  def self.edit_category(category_params)
+    @target_category = Category.find(category_params['category_ID'])    
+    @target_category.title = category_params['category_title']
+    @target_category.annotations = category_params['category_comment']
+    @target_category.save
+  end
+
+  def self.soft_delete_category(category_params)
+    @disable_category = Category.find(category_params['category_ID'])    
+    @disable_category.title = "#{category_params['category_title']}--disabled--"  
+    @disable_category.save
+  end
+
   def self.create_new_task(user_token, task_params)
     @logged_account = Account.find_by( "authentication_token": user_token)
     @new_task = Task.new("account_ID": @logged_account.id, 

@@ -1,10 +1,13 @@
+require 'bcrypt' 
+
 class Repository 
   def self.create_user_account(new_user)
     @user_details = User.new("first_name": new_user['first_name'], "last_name": new_user['last_name'], "user_mail": new_user['email'])
     # @user_details.save
     return user_details.errors.full_messages if !(@user_details.save)
     
-    @account_details = Account.new( "user_ID":  User.last.id, "account_type_ID": 1, "username": new_user['username'], "password": new_user['password'], "authentication_token": "randomCode")
+    @account_details = Account.new( "user_ID":  User.last.id, "account_type_ID": 1, "username": new_user['username'], 
+      "password": BCrypt::Password.create(new_user['password'].squish), "authentication_token": "   ")
 
      
     print @account_details.errors.full_messages
@@ -32,11 +35,16 @@ class Repository
      #https://stackoverflow.com/questions/88311/how-to-generate-a-random-string-in-ruby
 
     if @account || @user
-      if @account.password == validate_user["password"]
+      if BCrypt::Password.new(@account.password) == validate_user['password']
         @account.authentication_token = @generated_token
-        @account.save              
-        return @generated_token
+        @account.save   
+        return @generated_token  
       else
+      # if @account.password == BCrypt::Password.create(validate_user["password"])
+      #   @account.authentication_token = @generated_token
+      #   @account.save              
+      #   return @generated_token
+      # else
         return false
       end
     else
